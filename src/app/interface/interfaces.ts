@@ -8,3 +8,8 @@ export interface Views {
   appHitStrike: boolean;
   appGameOver: boolean;
 }
+
+export interface MainButton {
+  text: string;
+  icon: string;
+}

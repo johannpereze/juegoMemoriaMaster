@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { MainButton } from 'src/app/interface/interfaces';
 import { GameService } from '../../services/game.service';
 
 @Component({
@@ -10,5 +11,10 @@ import { GameService } from '../../services/game.service';
 export class WelcomeComponent{
 
   constructor(private gameService: GameService) { }
+
+  mainButton: MainButton = {
+    text: 'Game Start',
+    icon: ''
+  }
 
 }
