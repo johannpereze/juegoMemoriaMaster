@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { GameService } from './services/game.service';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +7,11 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'juegoMemoriaMaster';
+  constructor(private gameService: GameService){}
+
+  get views(){
+    return this.gameService.views
+  }
+
+  title = 'Masters: Memory Game';
 }

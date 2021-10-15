@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { GameService } from '../../services/game.service';
 
 @Component({
   selector: 'app-welcome',
@@ -6,11 +7,8 @@ import { Component, OnInit } from '@angular/core';
   styles: [
   ]
 })
-export class WelcomeComponent implements OnInit {
+export class WelcomeComponent{
 
-  constructor() { }
-
-  ngOnInit(): void {
-  }
+  constructor(private gameService: GameService) { }
 
 }

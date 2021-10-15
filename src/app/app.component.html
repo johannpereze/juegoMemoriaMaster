@@ -1,8 +1,8 @@
-<app-header></app-header>
-<app-score></app-score>
-<app-welcome></app-welcome>
-<app-countdown></app-countdown>
-<app-random-word></app-random-word>
-<app-word-input></app-word-input>
-<app-hit-strike></app-hit-strike>
-<app-game-over></app-game-over>
+<app-header *ngIf="views.appHeader" ></app-header>
+<app-score *ngIf="views.appScore" ></app-score>
+<app-welcome *ngIf="views.appWelcome" ></app-welcome>
+<app-countdown *ngIf="views.appCountdown" ></app-countdown>
+<app-random-word *ngIf="views.appRandomWord" ></app-random-word>
+<app-word-input *ngIf="views.appWordInput" ></app-word-input>
+<app-hit-strike *ngIf="views.appHitStrike" ></app-hit-strike>
+<app-game-over *ngIf="views.appGameOver" ></app-game-over>
