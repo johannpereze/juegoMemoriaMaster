@@ -8,7 +8,7 @@ Check it out on [Figma](https://www.figma.com/file/ulvQBuRW1CVWomqP8pwsCq/FlowCh
 
 ## Wireframe
 
-Take a look at [Figma](https://www.figma.com/file/MiqKr4lbLSWquKCDI4fPji/Wireframe-Juego-Memoria?node-id=0%3A1)
+Take a look at [Figma](https://www.figma.com/file/CKcWBrhdun8GNtgSeKy9fp/Wireframe-Juego-de-Memoria?node-id=0%3A1)
 
 ## Angular info
 
