@@ -10,6 +10,10 @@ Check it out on [Figma](https://www.figma.com/file/ulvQBuRW1CVWomqP8pwsCq/FlowCh
 
 Take a look at [Figma](https://www.figma.com/file/CKcWBrhdun8GNtgSeKy9fp/Wireframe-Juego-de-Memoria?node-id=0%3A1)
 
+## Download info
+
+You can clone or fork this repo. Run: `npm install` after download locally
+
 ## Angular info
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 12.2.2.
