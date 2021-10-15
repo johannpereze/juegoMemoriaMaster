@@ -11,5 +11,5 @@ export interface Views {
 
 export interface MainButton {
   text: string;
-  icon: string;
+  iconClass: string;
 }

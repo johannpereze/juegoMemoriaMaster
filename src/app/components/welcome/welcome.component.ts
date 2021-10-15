@@ -14,7 +14,7 @@ export class WelcomeComponent{
 
   mainButton: MainButton = {
     text: 'Game Start',
-    icon: ''
+    iconClass: 'main-button__icon--arrow-right-circle'
   }
 
 }

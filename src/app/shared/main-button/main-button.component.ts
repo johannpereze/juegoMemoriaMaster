@@ -9,7 +9,7 @@ import { MainButton } from '../../interface/interfaces';
 export class MainButtonComponent implements OnInit {
   @Input() mainButton: MainButton = {
     text: '',
-    icon: '',
+    iconClass: '',
   };
   constructor() {}
 

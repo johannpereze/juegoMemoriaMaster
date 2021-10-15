@@ -1,17 +1,14 @@
 @import "../2-helpers/variables";
 
-
 //header
-.header{
+.header {
   background-color: $light-coral;
 }
 
-.header p{
+.header p {
   margin: 0;
   padding: 10px;
 }
-
-
 
 //score
 .score {
@@ -20,14 +17,42 @@
     display: flex;
     justify-content: space-between;
   }
-  &__item{
-      padding: 10xp;
-      margin: auto;
+  &__item {
+    padding: 10xp;
+    margin: auto;
   }
-  &__number{
-      text-align: center;
+  &__number {
+    text-align: center;
   }
-  &__label{
-      text-align: center;
+  &__label {
+    text-align: center;
+  }
+}
+
+//main-button
+
+.main-button {
+  background-color: $light-sea-green;
+  color: $floral-white;
+  padding: 10px;
+  border: none;
+  border-radius: 2rem;
+  &__icon {
+    display: inline-block;
+    background-size: cover;
+    width: 20px;
+    height: 20px;
+    &--arrow-left-circle {
+      background-image: url(../../assets/images/icons/arrow-left-circle.svg);
+    }
+    &--arrow-right-circle {
+      background-image: url(../../assets/images/icons/arrow-right-circle.svg);
+    }
+    &--check-circle {
+      background-image: url(../../assets/images/icons/check-circle.svg);
+    }
+    &--play-again {
+      background-image: url(../../assets/images/icons/play-again.svg);
+    }
   }
 }
