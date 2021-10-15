@@ -1,6 +1,19 @@
 @import "../2-helpers/variables";
-//score
 
+
+//header
+.header{
+  background-color: $light-coral;
+}
+
+.header p{
+  margin: 0;
+  padding: 10px;
+}
+
+
+
+//score
 .score {
   background-color: $cg-blue;
   &__container {
