@@ -1,6 +1,8 @@
 # MasterMemmory Game
 
-## Live version: soon
+## Live version
+
+Play online at: [Netlify](https://masters-memory.netlify.app/)
 
 ## Workflow
 
