@@ -28,4 +28,3 @@ export interface Score {
     hits: number;
     strikes: number;
 }
-

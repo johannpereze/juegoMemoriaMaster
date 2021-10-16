@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component} from '@angular/core';
+import { GameService } from 'src/app/services/game.service';
 
 @Component({
   selector: 'app-random-word',
@@ -6,11 +7,12 @@ import { Component, OnInit } from '@angular/core';
   styles: [
   ]
 })
-export class RandomWordComponent implements OnInit {
+export class RandomWordComponent {
 
-  constructor() { }
+  constructor(private gameService: GameService) {}
 
-  ngOnInit(): void {
-  }
+ get currentWord(){
+   return this.gameService.currentWord
+ }
 
 }

@@ -102,4 +102,5 @@ export class GameService {
       timeForWord: 9, //hundredths of a second
     },
   ];
+  
 }
