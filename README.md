@@ -10,6 +10,10 @@ Check it out on [Figma](https://www.figma.com/file/ulvQBuRW1CVWomqP8pwsCq/FlowCh
 
 Take a look at [Figma](https://www.figma.com/file/CKcWBrhdun8GNtgSeKy9fp/Wireframe-Juego-de-Memoria?node-id=0%3A1)
 
+## UI/UX Design
+
+Also created in [Figma](https://www.figma.com/file/llawIXfEvSZ8CtJIJIs6nJ/UI-Juego-de-Memoria?node-id=202%3A295)
+
 ## Download info
 
 You can clone or fork this repo. Run: `npm install` after download locally
