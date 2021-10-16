@@ -33,12 +33,16 @@ export class WordInputComponent {
 
   winner() {
     console.log('WINNER!');
+    this.gameService.views.appHitStrike = false
+    this.gameService.views.appGameOver = true
+    this.gameService.score.finalResult = "!YOU WIN!"
   }
 
   gameOver() {
     console.log('LOSER!');
     this.gameService.views.appHitStrike = false
     this.gameService.views.appGameOver = true
+    this.gameService.score.finalResult = "!GAME OVER!"
   }
 
   wordsAreEqual(): boolean {
@@ -81,6 +85,7 @@ export class WordInputComponent {
       if (this.gameService.score.hits === 3) {
         this.levelUp();
         if (this.gameService.score.playerLevel > 3) {
+          this.gameService.score.playerLevel = 3
           this.winner();
         }
       }

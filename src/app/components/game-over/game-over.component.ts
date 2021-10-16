@@ -14,6 +14,10 @@ export class GameOverComponent {
     return this.gameService.gameStart;
   }
 
+  get finalResult() {
+    return this.gameService.score.finalResult;
+  }
+
   mainButton: MainButton = {
     text: 'Play again',
     iconClass: 'main-button__icon--play-again',
