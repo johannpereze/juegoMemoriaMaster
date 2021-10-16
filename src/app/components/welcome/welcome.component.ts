@@ -19,6 +19,8 @@ export class WelcomeComponent {
     this.gameService.views.appCountdown = true;
     this.gameService.views.appHeader = true;
     this.gameService.views.appScore = true;
+    this.getWord(this.wordLevel);
+    this.countdown();
   }
 
   getWord(level: number) {
@@ -61,8 +63,6 @@ export class WelcomeComponent {
     iconClass: 'main-button__icon--arrow-right-circle',
     action: () => {
       this.gameStart();
-      this.getWord(this.wordLevel);
-      this.countdown();
     },
   };
 }

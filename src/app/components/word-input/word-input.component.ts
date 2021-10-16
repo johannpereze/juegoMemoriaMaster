@@ -21,7 +21,7 @@ export class WordInputComponent {
     this.gameService.score.hits = 0;
   }
 
-  checkWordParity(): boolean {
+  wordsAreEqual(): boolean {
     return this.currentWord.typedWord.toLowerCase().trim() ===
       this.currentWord.randomWord
       ? true
@@ -39,6 +39,22 @@ export class WordInputComponent {
     this.gameService.score.strikes++;
   }
 
+  check() {
+    console.log(this.currentWord.typedWord);
+    if (this.wordsAreEqual()) {
+      this.hit();
+      if (this.gameService.score.hits === 3) {
+        this.levelUp();
+      }
+    } else {
+      this.strike();
+    }
+  }
+
+  gameContinue(){
+    
+  }
+
   // set currentWord(word) {
   //   this.gameService.currentWord = word;
   // } //No lo necesito (creo)
@@ -47,15 +63,7 @@ export class WordInputComponent {
     text: 'Check',
     iconClass: 'main-button__icon--check-circle',
     action: () => {
-      console.log(this.currentWord.typedWord);
-      if (this.checkWordParity()) {
-        this.hit();
-        if (this.gameService.score.hits === 3) {
-          this.levelUp();
-        }
-      } else {
-        this.strike();
-      }
+      this.check();
     },
   };
 
