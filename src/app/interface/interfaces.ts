@@ -12,4 +12,19 @@ export interface Views {
 export interface MainButton {
   text: string;
   iconClass: string;
+  action: () => void;
+}
+
+export interface WorldLevel {
+  numberOfWords: number;
+  minNumberOfLeters: number;
+  maxNumberOfLeters: number;
+  timeForWord: number;
+}
+
+export interface Score {
+  wordLevel: number;
+  playerLevel: number;
+  hits: number;
+  strikes: number;
 }

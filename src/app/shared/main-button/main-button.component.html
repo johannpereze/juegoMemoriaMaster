@@ -1,1 +1,4 @@
-<button class="main-button">{{mainButton.text}} <span [class]='mainButton.iconClass' class="main-button__icon"></span> </button>
+<button (click)="buttonAction()" class="main-button">
+  {{ mainButton.text }}
+  <span [class]="mainButton.iconClass" class="main-button__icon"></span>
+</button>

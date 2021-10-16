@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
+import { MainButton } from 'src/app/interface/interfaces';
+import { GameService } from 'src/app/services/game.service';
 
 @Component({
   selector: 'app-countdown',
@@ -6,11 +8,23 @@ import { Component, OnInit } from '@angular/core';
   styles: [
   ]
 })
-export class CountdownComponent implements OnInit {
+export class CountdownComponent {
 
-  constructor() { }
+  constructor(private gameService: GameService) { }
 
-  ngOnInit(): void {
+  get countDownTime(){
+    return this.gameService.countDownTime
   }
+
+  mainButton: MainButton = {
+    text: 'Game Start',
+    iconClass: 'main-button__icon--arrow-right-circle',
+    action: ()=>{
+      this.gameService.views.appWelcome = false
+      this.gameService.views.appCountdown = true
+    }
+  }
+
+
 
 }

@@ -2,6 +2,11 @@
 @import "1-components/all";
 @import "2-helpers/variables";
 
+html {
+  font-size: 62.5%;
+}
+
 body{
   font-family: $Font-main;
+  font-size: 2rem;
 }
