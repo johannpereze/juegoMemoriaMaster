@@ -33,3 +33,8 @@ export interface CurrentWord {
   randomWord: string;
   typedWord: string;
 }
+
+export interface HitStrikeParams {
+  message: string;
+  iconClass: string;
+}

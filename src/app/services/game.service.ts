@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { interval } from 'rxjs';
 import { map } from 'rxjs/operators';
-import { CurrentWord, Score, Views, WorldLevel } from '../interface/interfaces';
+import { CurrentWord, HitStrikeParams, Score, Views, WorldLevel } from '../interface/interfaces';
 
 @Injectable({
   providedIn: 'root',
@@ -94,6 +94,11 @@ export class GameService {
     },
   ];
 
+  hitStrikeParams: HitStrikeParams = {
+    message: '',
+    iconClass: '',
+  };
+
   currentWord: CurrentWord = {
     randomWord: '',
     typedWord: '',
@@ -112,6 +117,8 @@ export class GameService {
       this.words[level][random];
   }
 
+
+
   //Tengo que refactorizar esta función tan fea
   countdown = ()=> { //Tiene que ser arrowFunction para mantener el contexto de gameservice así lo llame en otro componente. ¿Es mala práctica?
     const sub$ = this.countdownTimer$.subscribe({
@@ -128,6 +135,7 @@ export class GameService {
               if (value === this.wordLevel[this.score.wordLevel].timeForWord) {
                 sub2$.unsubscribe();
                 this.views.appRandomWord = false;
+                
                 this.views.appWordInput = true;
               }
             },

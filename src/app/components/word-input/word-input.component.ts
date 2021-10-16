@@ -38,17 +38,27 @@ export class WordInputComponent {
       : false;
   }
 
+  showResult() {
+    this.gameService.views.appWordInput = false;
+  }
+
   hit() {
     console.log('HIT!');
     this.gameService.score.wordLevel = this.gameService.score.playerLevel;
     this.gameService.score.hits++; //Quisiera hacer un getter para no escribir tan largo pero me dice read only
-    this.gameContinue()
+    this.gameService.views.appHitStrike = true;
+    this.gameService.hitStrikeParams.message = 'HIT!';
+    this.gameService.hitStrikeParams.iconClass = 'hitStrike__icon--hit';
+    this.showResult();
   }
 
   strike() {
     console.log('STRIKE!');
     this.gameService.score.strikes++;
-    this.gameContinue()
+    this.gameService.views.appHitStrike = true;
+    this.gameService.hitStrikeParams.message = 'STRIKE!';
+    this.gameService.hitStrikeParams.iconClass = 'hitStrike__icon--strike';
+    this.showResult();
   }
 
   check() {
@@ -62,15 +72,6 @@ export class WordInputComponent {
       this.strike();
     }
   }
-
-  gameContinue() {
-    this.gameService.views.appCountdown = true;
-    this.gameService.views.appWordInput = false;
-    this.getWord(this.wordLevel);
-    this.countdown();
-    this.gameService.currentWord.typedWord = ''
-  }
-
 
   mainButton: MainButton = {
     text: 'Check',
