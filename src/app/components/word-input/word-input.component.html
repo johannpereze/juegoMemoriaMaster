@@ -8,6 +8,7 @@
     type="text"
     name="currentWordValue"
     [(ngModel)]="currentWord.typedWord"
+    (keyup.enter)='mainButton.action()'
   />
 </div>
 
