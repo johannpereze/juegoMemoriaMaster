@@ -13,6 +13,9 @@ export class WelcomeComponent {
   get wordLevel() {
     return this.gameService.score.wordLevel;
   }
+  get countdown() {
+    return this.gameService.countdown;
+  }
 
   gameStart() {
     this.gameService.views.appWelcome = false;
@@ -30,33 +33,33 @@ export class WelcomeComponent {
       this.gameService.words[level][random];
   }
 
-  countdown() { //Tengo que refactorizar esta función tan fea
-    const sub$ = this.gameService.countdownTimer$.subscribe({
-      next: (value) => {
-        console.log(value);
-        this.gameService.countDownTime = value;
-        if (value === 0) {
-          sub$.unsubscribe();
-          this.gameService.views.appCountdown = false;
-          this.gameService.views.appRandomWord = true;
-          const sub2$ = this.gameService.countdownWord$.subscribe({
-            next: (value) => {
-              console.log('Mostramos palabra: ', value);
-              if (
-                value === this.gameService.wordLevel[this.wordLevel].timeForWord
-              ) {
-                sub2$.unsubscribe();
-                this.gameService.views.appRandomWord = false;
-                this.gameService.views.appWordInput = true;
-              }
-            },
-            complete: () => console.log('complete'), //OJO, NO SE ESTÁ COMPLETANDO ESTE OBSERVABLE
-          });
-        }
-      },
-      complete: () => console.log('complete'), //OJO, NO SE ESTÁ COMPLETANDO ESTE OBSERVABLE
-    });
-  }
+  // countdown() { //Tengo que refactorizar esta función tan fea
+  //   const sub$ = this.gameService.countdownTimer$.subscribe({
+  //     next: (value) => {
+  //       console.log(value);
+  //       this.gameService.countDownTime = value;
+  //       if (value === 0) {
+  //         sub$.unsubscribe();
+  //         this.gameService.views.appCountdown = false;
+  //         this.gameService.views.appRandomWord = true;
+  //         const sub2$ = this.gameService.countdownWord$.subscribe({
+  //           next: (value) => {
+  //             console.log('Mostramos palabra: ', value);
+  //             if (
+  //               value === this.gameService.wordLevel[this.wordLevel].timeForWord
+  //             ) {
+  //               sub2$.unsubscribe();
+  //               this.gameService.views.appRandomWord = false;
+  //               this.gameService.views.appWordInput = true;
+  //             }
+  //           },
+  //           complete: () => console.log('complete'), //OJO, NO SE ESTÁ COMPLETANDO ESTE OBSERVABLE
+  //         });
+  //       }
+  //     },
+  //     complete: () => console.log('complete'), //OJO, NO SE ESTÁ COMPLETANDO ESTE OBSERVABLE
+  //   });
+  // }
 
   mainButton: MainButton = {
     text: 'Game Start',

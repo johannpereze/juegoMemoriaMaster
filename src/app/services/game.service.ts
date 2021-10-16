@@ -7,8 +7,6 @@ import { CurrentWord, Score, Views, WorldLevel } from '../interface/interfaces';
   providedIn: 'root',
 })
 export class GameService {
-  constructor() {}
-
   //Voy a poner las palabras temporalmente
   words: string[][] = [
     [''],
@@ -68,16 +66,6 @@ export class GameService {
     strikes: 0,
   };
 
-  currentWord: CurrentWord = {
-    randomWord: '',
-    typedWord: '',
-  };
-
-  countDownTime: number = 3;
-
-  countdownTimer$ = interval(1000).pipe(map((value) => 2 - value));
-  countdownWord$ = interval(100);
-
   wordLevel: WorldLevel[] = [
     {
       //This object takes index 0, so the other indexes match the wordLevel
@@ -105,4 +93,42 @@ export class GameService {
       timeForWord: 9, //hundredths of a second
     },
   ];
+
+  currentWord: CurrentWord = {
+    randomWord: '',
+    typedWord: '',
+  };
+
+  countDownTime: number = 3;
+
+  countdownTimer$ = interval(1000).pipe(map((value) => 2 - value));
+
+  countdownWord$ = interval(100);
+
+  //Tengo que refactorizar esta función tan fea
+  countdown = ()=> { //Tiene que ser arrowFunction para mantener el contexto de gameservice así lo llame en otro componente. ¿Es mala práctica?
+    const sub$ = this.countdownTimer$.subscribe({
+      next: (value) => {
+        console.log(value);
+        this.countDownTime = value;
+        if (value === 0) {
+          sub$.unsubscribe();
+          this.views.appCountdown = false;
+          this.views.appRandomWord = true;
+          const sub2$ = this.countdownWord$.subscribe({
+            next: (value) => {
+              console.log('Mostramos palabra: ', value);
+              if (value === this.wordLevel[this.score.wordLevel].timeForWord) {
+                sub2$.unsubscribe();
+                this.views.appRandomWord = false;
+                this.views.appWordInput = true;
+              }
+            },
+            complete: () => console.log('complete'), //OJO, NO SE ESTÁ COMPLETANDO ESTE OBSERVABLE
+          });
+        }
+      },
+      complete: () => console.log('complete'), //OJO, NO SE ESTÁ COMPLETANDO ESTE OBSERVABLE
+    });
+  }
 }
