@@ -14,7 +14,25 @@ export class WordInputComponent {
     return this.gameService.currentWord;
   }
 
-  
+  levelUp() {
+    this.gameService.score.wordLevel++;
+    this.gameService.score.playerLevel++;
+    this.gameService.score.strikes = 0;
+    this.gameService.score.hits = 0;
+  }
+
+  checkWordParity(): boolean {
+    return this.currentWord.typedWord.toLowerCase().trim() ===
+      this.currentWord.randomWord
+      ? true
+      : false;
+  }
+
+  hit(){
+    console.log('ganas punto');
+    this.gameService.score.wordLevel = this.gameService.score.playerLevel;
+    this.gameService.score.hits++; //Quisiera hacer un getter para no escribir tan largo pero me dice read only
+  }
 
   // set currentWord(word) {
   //   this.gameService.currentWord = word;
@@ -25,12 +43,14 @@ export class WordInputComponent {
     iconClass: 'main-button__icon--check-circle',
     action: () => {
       console.log(this.currentWord.typedWord);
-      if(this.currentWord.typedWord.toLowerCase().trim() === this.currentWord.randomWord){
-        console.log('ganas punto');
-        this.gameService.score.hits++ //Quisiera hacer un getter para no escribir tan largo pero me dice read only
-      }else{
+      if (this.checkWordParity()) {
+        this.hit()
+        if (this.gameService.score.hits === 3) {
+          this.levelUp;
+        }
+      } else {
         console.log('Pierdes');
-        this.gameService.score.strikes--
+        this.gameService.score.strikes++;
       }
     },
   };
