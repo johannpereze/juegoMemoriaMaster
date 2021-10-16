@@ -27,11 +27,10 @@ export class HitStrikeComponent {
     this.gameService.views.appCountdown = true;
     this.gameService.views.appHitStrike = false;
     this.getWord(this.wordLevel);
+    this.gameService.countDownTime = 3;
     this.countdown();
     this.gameService.currentWord.typedWord = '';
   }
-
-
 
   mainButton: MainButton = {
     text: 'Continue',

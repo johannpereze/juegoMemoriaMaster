@@ -58,15 +58,19 @@
 }
 
 .hitStrike {
-  background-color: $light-sea-green;
+  background-color: white;
   &__icon {
+    
+    display: inline-block;
     background-size: cover;
-    width: 50px;
-    height: 50px;
+    width: 150px;
+    height: 150px;
     &--hit {
+      background-color: $light-sea-green;
       background-image: url(../../assets/images/icons/hit-icon.svg);
     }
     &--strike {
+      background-color: red;
       background-image: url(../../assets/images/icons/strike-icon.svg);
     }
   }
