@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component} from '@angular/core';
 import { MainButton } from 'src/app/interface/interfaces';
 import { GameService } from '../../services/game.service';
 
@@ -12,7 +12,7 @@ export class WelcomeComponent {
 
   getWord(level:number){
     const random = Math.round(Math.random()*10)
-    this.gameService.currentWord = this.gameService.words[level][random]
+    this.gameService.currentWord.randomWord = this.gameService.words[level][random]
   }
 
   level: number = this.gameService.score.wordLevel; //esto lo debo traer desde el servicio

@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { interval } from 'rxjs';
 import { map } from 'rxjs/operators';
-import { Score, Views, WorldLevel } from '../interface/interfaces';
+import { CurrentWord, Score, Views, WorldLevel } from '../interface/interfaces';
 
 @Injectable({
   providedIn: 'root',
@@ -68,7 +68,10 @@ export class GameService {
     strikes: 0,
   };
 
-  currentWord: string = 'platzi';
+  currentWord: CurrentWord = {
+    randomWord: '',
+    typedWord: '',
+  };
 
   countDownTime: number = 3;
 
@@ -102,5 +105,4 @@ export class GameService {
       timeForWord: 9, //hundredths of a second
     },
   ];
-  
 }
