@@ -24,6 +24,7 @@ export class HitStrikeComponent {
   }
 
   gameResume() {
+    
     this.gameService.views.appCountdown = true;
     this.gameService.views.appHitStrike = false;
     this.getWord(this.wordLevel);

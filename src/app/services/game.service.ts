@@ -1,7 +1,13 @@
 import { Injectable } from '@angular/core';
 import { interval } from 'rxjs';
 import { map } from 'rxjs/operators';
-import { CurrentWord, HitStrikeParams, Score, Views, WorldLevel } from '../interface/interfaces';
+import {
+  CurrentWord,
+  HitStrikeParams,
+  Score,
+  Views,
+  WorldLevel,
+} from '../interface/interfaces';
 
 @Injectable({
   providedIn: 'root',
@@ -64,6 +70,7 @@ export class GameService {
     playerLevel: 1,
     hits: 0,
     strikes: 0,
+    finalResult:'',
   };
 
   wordLevel: WorldLevel[] = [
@@ -110,17 +117,29 @@ export class GameService {
 
   countdownWord$ = interval(100);
 
-  getWord = (level: number)=> {
+  getWord = (level: number) => {
     const random = Math.floor(Math.random() * 10); //numero random del 0 al 9. No debería ser por 10 sino por el length del array
     console.log('Random number: ', random);
-    this.currentWord.randomWord =
-      this.words[level][random];
-  }
+    this.currentWord.randomWord = this.words[level][random];
+  };
 
-
+  gameStart = () => {
+    this.score.wordLevel = 1;
+    this.score.playerLevel = 1;
+    this.score.hits = 0;
+    this.score.strikes = 0;
+    this.views.appWelcome = false;
+    this.views.appCountdown = true;
+    this.views.appHeader = true;
+    this.views.appScore = true;
+    this.views.appGameOver = false;
+    this.getWord(this.score.wordLevel);
+    this.countdown();
+  };
 
   //Tengo que refactorizar esta función tan fea
-  countdown = ()=> { //Tiene que ser arrowFunction para mantener el contexto de gameservice así lo llame en otro componente. ¿Es mala práctica?
+  countdown = () => {
+    //Tiene que ser arrowFunction para mantener el contexto de gameservice así lo llame en otro componente. ¿Es mala práctica?
     const sub$ = this.countdownTimer$.subscribe({
       next: (value) => {
         console.log(value);
@@ -135,7 +154,7 @@ export class GameService {
               if (value === this.wordLevel[this.score.wordLevel].timeForWord) {
                 sub2$.unsubscribe();
                 this.views.appRandomWord = false;
-                
+
                 this.views.appWordInput = true;
               }
             },
@@ -145,5 +164,5 @@ export class GameService {
       },
       complete: () => console.log('complete'), //OJO, NO SE ESTÁ COMPLETANDO ESTE OBSERVABLE
     });
-  }
+  };
 }

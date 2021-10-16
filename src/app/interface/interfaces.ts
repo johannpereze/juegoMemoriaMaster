@@ -27,6 +27,7 @@ export interface Score {
   playerLevel: number;
   hits: number;
   strikes: number;
+  finalResult: string;
 }
 
 export interface CurrentWord {

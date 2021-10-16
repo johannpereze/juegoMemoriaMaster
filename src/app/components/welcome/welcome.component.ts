@@ -19,15 +19,18 @@ export class WelcomeComponent {
   get getWord() {
     return this.gameService.getWord;
   }
-
-  gameStart() {
-    this.gameService.views.appWelcome = false;
-    this.gameService.views.appCountdown = true;
-    this.gameService.views.appHeader = true;
-    this.gameService.views.appScore = true;
-    this.getWord(this.wordLevel);
-    this.countdown();
+  get gameStart() {
+    return this.gameService.gameStart;
   }
+
+  // gameStart() {
+  //   this.gameService.views.appWelcome = false;
+  //   this.gameService.views.appCountdown = true;
+  //   this.gameService.views.appHeader = true;
+  //   this.gameService.views.appScore = true;
+  //   this.getWord(this.wordLevel);
+  //   this.countdown();
+  // }
 
   // getWord(level: number) {
   //   const random = Math.floor(Math.random() * 10); //numero random del 0 al 9. No debería ser por 10 sino por el length del array

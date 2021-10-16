@@ -31,6 +31,16 @@ export class WordInputComponent {
     this.gameService.score.hits = 0;
   }
 
+  winner() {
+    console.log('WINNER!');
+  }
+
+  gameOver() {
+    console.log('LOSER!');
+    this.gameService.views.appHitStrike = false
+    this.gameService.views.appGameOver = true
+  }
+
   wordsAreEqual(): boolean {
     return this.currentWord.typedWord.toLowerCase().trim() ===
       this.currentWord.randomWord
@@ -55,6 +65,9 @@ export class WordInputComponent {
   strike() {
     console.log('STRIKE!');
     this.gameService.score.strikes++;
+    if (this.gameService.score.wordLevel !== 1) {
+      this.gameService.score.wordLevel--;
+    }
     this.gameService.views.appHitStrike = true;
     this.gameService.hitStrikeParams.message = 'STRIKE!';
     this.gameService.hitStrikeParams.iconClass = 'hitStrike__icon--strike';
@@ -67,9 +80,15 @@ export class WordInputComponent {
       this.hit();
       if (this.gameService.score.hits === 3) {
         this.levelUp();
+        if (this.gameService.score.playerLevel > 3) {
+          this.winner();
+        }
       }
     } else {
       this.strike();
+      if (this.gameService.score.strikes > 2){
+        this.gameOver()
+      }
     }
   }
 
