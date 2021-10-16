@@ -12,7 +12,7 @@ export interface Views {
 export interface MainButton {
   text: string;
   iconClass: string;
-  action: () => void;
+  action: (event?: Event) => void;
 }
 
 export interface WorldLevel {

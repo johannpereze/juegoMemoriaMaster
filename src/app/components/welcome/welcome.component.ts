@@ -1,4 +1,4 @@
-import { Component} from '@angular/core';
+import { Component } from '@angular/core';
 import { MainButton } from 'src/app/interface/interfaces';
 import { GameService } from '../../services/game.service';
 
@@ -10,9 +10,12 @@ import { GameService } from '../../services/game.service';
 export class WelcomeComponent {
   constructor(private gameService: GameService) {}
 
-  getWord(level:number){
-    const random = Math.round(Math.random()*10)
-    this.gameService.currentWord.randomWord = this.gameService.words[level][random]
+  getWord(level: number) {
+    const random = Math.floor(Math.random() * 10); //numero random del 0 al 9. No debería ser por 10 sino por el length del array
+    console.log('Random number: ', random);
+
+    this.gameService.currentWord.randomWord =
+      this.gameService.words[level][random];
   }
 
   level: number = this.gameService.score.wordLevel; //esto lo debo traer desde el servicio
@@ -25,7 +28,7 @@ export class WelcomeComponent {
       this.gameService.views.appCountdown = true;
       this.gameService.views.appHeader = true;
       this.gameService.views.appScore = true;
-      this.getWord(this.level)
+      this.getWord(this.level);
       const sub$ = this.gameService.countdownTimer$.subscribe({
         next: (value) => {
           console.log(value);
