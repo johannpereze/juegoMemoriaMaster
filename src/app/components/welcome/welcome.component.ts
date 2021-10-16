@@ -16,6 +16,9 @@ export class WelcomeComponent {
   get countdown() {
     return this.gameService.countdown;
   }
+  get getWord() {
+    return this.gameService.getWord;
+  }
 
   gameStart() {
     this.gameService.views.appWelcome = false;
@@ -26,12 +29,12 @@ export class WelcomeComponent {
     this.countdown();
   }
 
-  getWord(level: number) {
-    const random = Math.floor(Math.random() * 10); //numero random del 0 al 9. No debería ser por 10 sino por el length del array
-    console.log('Random number: ', random);
-    this.gameService.currentWord.randomWord =
-      this.gameService.words[level][random];
-  }
+  // getWord(level: number) {
+  //   const random = Math.floor(Math.random() * 10); //numero random del 0 al 9. No debería ser por 10 sino por el length del array
+  //   console.log('Random number: ', random);
+  //   this.gameService.currentWord.randomWord =
+  //     this.gameService.words[level][random];
+  // }
 
   // countdown() { //Tengo que refactorizar esta función tan fea
   //   const sub$ = this.gameService.countdownTimer$.subscribe({

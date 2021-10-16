@@ -105,6 +105,13 @@ export class GameService {
 
   countdownWord$ = interval(100);
 
+  getWord = (level: number)=> {
+    const random = Math.floor(Math.random() * 10); //numero random del 0 al 9. No debería ser por 10 sino por el length del array
+    console.log('Random number: ', random);
+    this.currentWord.randomWord =
+      this.words[level][random];
+  }
+
   //Tengo que refactorizar esta función tan fea
   countdown = ()=> { //Tiene que ser arrowFunction para mantener el contexto de gameservice así lo llame en otro componente. ¿Es mala práctica?
     const sub$ = this.countdownTimer$.subscribe({
