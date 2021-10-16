@@ -28,10 +28,15 @@ export class WordInputComponent {
       : false;
   }
 
-  hit(){
-    console.log('ganas punto');
+  hit() {
+    console.log('HIT!');
     this.gameService.score.wordLevel = this.gameService.score.playerLevel;
     this.gameService.score.hits++; //Quisiera hacer un getter para no escribir tan largo pero me dice read only
+  }
+
+  strike() {
+    console.log('STRIKE!');
+    this.gameService.score.strikes++;
   }
 
   // set currentWord(word) {
@@ -44,13 +49,12 @@ export class WordInputComponent {
     action: () => {
       console.log(this.currentWord.typedWord);
       if (this.checkWordParity()) {
-        this.hit()
+        this.hit();
         if (this.gameService.score.hits === 3) {
-          this.levelUp;
+          this.levelUp();
         }
       } else {
-        console.log('Pierdes');
-        this.gameService.score.strikes++;
+        this.strike();
       }
     },
   };

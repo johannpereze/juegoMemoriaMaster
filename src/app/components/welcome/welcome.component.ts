@@ -13,22 +13,27 @@ export class WelcomeComponent {
   getWord(level: number) {
     const random = Math.floor(Math.random() * 10); //numero random del 0 al 9. No debería ser por 10 sino por el length del array
     console.log('Random number: ', random);
-
     this.gameService.currentWord.randomWord =
       this.gameService.words[level][random];
   }
 
-  level: number = this.gameService.score.wordLevel; //esto lo debo traer desde el servicio
+  get wordLevel() {
+    return this.gameService.score.wordLevel;
+  }
+
+  gameStart() {
+    this.gameService.views.appWelcome = false;
+    this.gameService.views.appCountdown = true;
+    this.gameService.views.appHeader = true;
+    this.gameService.views.appScore = true;
+  }
 
   mainButton: MainButton = {
     text: 'Game Start',
     iconClass: 'main-button__icon--arrow-right-circle',
     action: () => {
-      this.gameService.views.appWelcome = false;
-      this.gameService.views.appCountdown = true;
-      this.gameService.views.appHeader = true;
-      this.gameService.views.appScore = true;
-      this.getWord(this.level);
+      this.gameStart();
+      this.getWord(this.wordLevel);
       const sub$ = this.gameService.countdownTimer$.subscribe({
         next: (value) => {
           console.log(value);
@@ -41,7 +46,8 @@ export class WelcomeComponent {
               next: (value) => {
                 console.log('Mostramos palabra: ', value);
                 if (
-                  value === this.gameService.wordLevel[this.level].timeForWord
+                  value ===
+                  this.gameService.wordLevel[this.wordLevel].timeForWord
                 ) {
                   sub2$.unsubscribe();
                   this.gameService.views.appRandomWord = false;
