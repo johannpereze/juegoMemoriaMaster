@@ -23,8 +23,9 @@ export interface WorldLevel {
 }
 
 export interface Score {
-  wordLevel: number;
-  playerLevel: number;
-  hits: number;
-  strikes: number;
+    wordLevel: number;
+    playerLevel: number;
+    hits: number;
+    strikes: number;
 }
+

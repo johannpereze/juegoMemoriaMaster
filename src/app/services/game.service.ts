@@ -9,6 +9,47 @@ import { Score, Views, WorldLevel } from '../interface/interfaces';
 export class GameService {
   constructor() {}
 
+  //Voy a poner las palabras temporalmente
+  words: string[][] = [
+    [''],
+    [
+      'aged',
+      'away',
+      'desk',
+      'gain',
+      'acing',
+      'famed',
+      'alibi',
+      'grief',
+      'imply',
+      'wrist',
+    ],
+    [
+      'Acnestis',
+      'Grommet',
+      'Meldrop',
+      'Octothorpe',
+      'Nauseant',
+      'Addend',
+      'Obelus',
+      'Agelast',
+      'Apricate',
+      'Behoove',
+    ],
+    [
+      'Wrest pin',
+      'Screwdriver set',
+      'Bike pump',
+      'Gaffer tape',
+      'Blu tack',
+      'Bulldog clip',
+      'Wrapping paper',
+      'Camping chair',
+      'Scratching post',
+      'Clothes pegs',
+    ],
+  ];
+
   views: Views = {
     appHeader: false,
     appScore: false,
@@ -27,7 +68,7 @@ export class GameService {
     strikes: 0,
   };
 
-  currentWord:string = 'platzi';
+  currentWord: string = 'platzi';
 
   countDownTime: number = 3;
 
