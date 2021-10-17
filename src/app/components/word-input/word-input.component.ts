@@ -33,16 +33,17 @@ export class WordInputComponent {
 
   winner() {
     console.log('WINNER!');
-    this.gameService.views.appHitStrike = false
-    this.gameService.views.appGameOver = true
-    this.gameService.score.gameOutcomeImg = "../../../assets/images/winner.svg"
+    this.gameService.views.appHitStrike = false;
+    this.gameService.views.appGameOver = true;
+    this.gameService.score.gameOutcomeImg = '../../../assets/images/winner.svg';
   }
 
   gameOver() {
     console.log('LOSER!');
-    this.gameService.views.appHitStrike = false
-    this.gameService.views.appGameOver = true
-    this.gameService.score.gameOutcomeImg = "../../../assets/images/game-over.svg"
+    this.gameService.views.appHitStrike = false;
+    this.gameService.views.appGameOver = true;
+    this.gameService.score.gameOutcomeImg =
+      '../../../assets/images/game-over.svg';
   }
 
   wordsAreEqual(): boolean {
@@ -57,7 +58,6 @@ export class WordInputComponent {
   }
 
   hit() {
-    console.log('HIT!');
     this.gameService.score.wordLevel = this.gameService.score.playerLevel;
     this.gameService.score.hits++; //Quisiera hacer un getter para no escribir tan largo pero me dice read only
     this.gameService.views.appHitStrike = true;
@@ -68,7 +68,6 @@ export class WordInputComponent {
   }
 
   strike() {
-    console.log('STRIKE!');
     this.gameService.score.strikes++;
     if (this.gameService.score.wordLevel !== 1) {
       this.gameService.score.wordLevel--;
@@ -81,20 +80,19 @@ export class WordInputComponent {
   }
 
   check() {
-    console.log(this.currentWord.typedWord);
     if (this.wordsAreEqual()) {
       this.hit();
       if (this.gameService.score.hits === 3) {
         this.levelUp();
         if (this.gameService.score.playerLevel > 3) {
-          this.gameService.score.playerLevel = 3
+          this.gameService.score.playerLevel = 3;
           this.winner();
         }
       }
     } else {
       this.strike();
-      if (this.gameService.score.strikes > 2){
-        this.gameOver()
+      if (this.gameService.score.strikes > 2) {
+        this.gameOver();
       }
     }
   }

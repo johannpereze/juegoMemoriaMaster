@@ -100,7 +100,7 @@ export class GameService {
 
   getWord = (level: number) => {
     const random = Math.floor(Math.random() * this.words.data[level].length); //numero random del 0 al 9. No debería ser por 10 sino por el length del array
-    console.log('Random number: ', random);
+    // console.log('Random number: ', random);
     this.currentWord.randomWord = this.words.data[level][random];
   };
 
@@ -123,7 +123,7 @@ export class GameService {
     //Tiene que ser arrowFunction para mantener el contexto de gameservice así lo llame en otro componente. ¿Es mala práctica?
     this.sub$ = this.countdownTimer$.subscribe({
       next: (value) => {
-        console.log(value);
+        console.log('Countdown time: ',value);
         this.countDownTime = value;
         if (value === 0) {
           this.sub$!.unsubscribe();
@@ -131,7 +131,7 @@ export class GameService {
           this.views.appRandomWord = true;
           this.sub2$ = this.countdownWord$.subscribe({
             next: (value) => {
-              console.log('Mostramos palabra: ', value);
+              console.log('Waiting time: ', value);
               if (value === this.wordLevel[this.score.wordLevel].timeForWord) {
                 this.sub2$!.unsubscribe();
                 this.views.appRandomWord = false;
