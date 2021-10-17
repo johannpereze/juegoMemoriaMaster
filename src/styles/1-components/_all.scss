@@ -161,11 +161,42 @@
 //random-word
 .random-word {
   .box1 + &__box1 {
+    //to gain specificity without #id
     background-color: $main-light;
   }
   &__box1 {
     p {
       color: $aux-light;
+    }
+  }
+}
+
+//word-input
+.word-input {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  .box1 {
+    p {
+      color: $aux-medium;
+    }
+  }
+  &__input-text {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+
+    input {
+      box-shadow: $shadow-medium;
+      height: 50px;
+      width: 70%;
+      border: none;
+      padding: 0 30px;
+      border-radius: 20px;
+      margin: 40px 0 60px 0;
+    }
+    :focus-visible{
+      outline-color: $main-dark
     }
   }
 }

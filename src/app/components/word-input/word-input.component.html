@@ -1,15 +1,17 @@
-<div>
-  <p>Good Luck!</p>
-</div>
+<div class="word-input">
+  <div class="box1">
+    <p>Good Luck!</p>
+  </div>
 
-<div>
-  <input
-    placeholder="Write the word..."
-    type="text"
-    name="currentWordValue"
-    [(ngModel)]="currentWord.typedWord"
-    (keyup.enter)='mainButton.action()'
-  />
-</div>
+  <div class="word-input__input-text">
+    <input
+      placeholder="Write the word..."
+      type="text"
+      name="currentWordValue"
+      [(ngModel)]="currentWord.typedWord"
+      (keyup.enter)="mainButton.action()"
+    />
+  </div>
 
-<app-main-button [mainButton]="mainButton"></app-main-button>
+  <app-main-button [mainButton]="mainButton"></app-main-button>
+</div>

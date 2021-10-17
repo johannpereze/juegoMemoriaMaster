@@ -59,8 +59,8 @@ export class GameService {
     appScore: true,
     appWelcome: false,
     appCountdown: false,
-    appRandomWord: true,
-    appWordInput: false,
+    appRandomWord: false,
+    appWordInput: true,
     appHitStrike: false,
     appGameOver: false,
   };
