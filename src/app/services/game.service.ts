@@ -55,15 +55,26 @@ export class GameService {
   ];
 
   views: Views = {
-    appHeader: false,
-    appScore: false,
-    appWelcome: true,
-    appCountdown: false,
+    appHeader: true,
+    appScore: true,
+    appWelcome: false,
+    appCountdown: true,
     appRandomWord: false,
     appWordInput: false,
     appHitStrike: false,
     appGameOver: false,
   };
+// //real params
+//   views: Views = {
+//     appHeader: false,
+//     appScore: false,
+//     appWelcome: true,
+//     appCountdown: false,
+//     appRandomWord: false,
+//     appWordInput: false,
+//     appHitStrike: false,
+//     appGameOver: false,
+//   };
 
   score: Score = {
     wordLevel: 1,

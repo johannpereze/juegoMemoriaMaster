@@ -5,15 +5,15 @@
   display: flex;
   justify-content: space-between;
   position: relative;
-  background-color: $aux-medium;
+  background-color: $aux-dark;
   box-shadow: $shadow-medium;
   height: 80px;
- &__logo{
-   position: absolute;
-   top: 10px;
-   right: 15px;
- }
-  &__back-button{
+  &__logo {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+  }
+  &__back-button {
     display: inline-block;
     background-size: cover;
     width: 40px;
@@ -24,21 +24,21 @@
 }
 
 //welcome
-.welcome{
+.welcome {
   display: flex;
   align-items: center;
   flex-direction: column;
-  img{
+  img {
     width: 80%;
     margin: 30px auto 20px;
   }
-  &__instructions{
+  &__instructions {
     background-color: $lightest;
     width: 80%;
     padding: 1rem;
     border-radius: 2rem;
     box-shadow: $shadow-light;
-    h1{
+    h1 {
       color: $main-dark;
       margin: 1.5rem auto;
       text-align: center;
@@ -52,20 +52,39 @@
 
 //score
 .score {
-  background-color: $main-dark;
+  background-color: $aux-medium;
+  width: 94%;
+  height: 80px;
+  margin: 0 auto;
+  border-bottom-left-radius: 1.5rem;
+  border-bottom-right-radius: 1.5rem;
+  box-shadow: $shadow-medium;
+  
   &__container {
     display: flex;
-    justify-content: space-between;
+    padding: 0 30px;
   }
   &__item {
-    padding: 10xp;
+    // padding: 10xp;
     margin: auto;
+    margin: 10px auto;
   }
   &__number {
-    text-align: center;
+    p {
+      text-align: center;
+      margin: 0;
+      font-size: $h1;
+      font-weight: bold;
+      color: $lightest;
+    }
   }
   &__label {
-    text-align: center;
+    p {
+      text-align: center;
+      font-size: $labels;
+      margin: 0;
+      color: $lightest;
+    }
   }
 }
 
@@ -80,7 +99,7 @@
   border: none;
   border-radius: 2.5rem;
   position: relative;
-  &__container{
+  &__container {
     display: flex;
     justify-content: center;
     margin: 40px auto;
@@ -111,7 +130,6 @@
 .hitStrike {
   background-color: white;
   &__icon {
-    
     display: inline-block;
     background-size: cover;
     width: 150px;
