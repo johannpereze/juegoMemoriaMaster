@@ -1,3 +1,4 @@
-
-<div class="header"><span class="header__back-button"></span><img class="header__logo" src="../../../assets/images/isotype.svg" alt=""></div>
-
+<div (click)="exit()" class="header">
+  <span *ngIf='!isWelcomeVisible' class="header__back-button"></span
+  ><img class="header__logo" src="../../../assets/images/isotype.svg" alt="" />
+</div>

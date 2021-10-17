@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { interval } from 'rxjs';
+import { interval, Observable, Subscription } from 'rxjs';
 import { map } from 'rxjs/operators';
 import {
   CurrentWord,
@@ -65,16 +65,16 @@ export class GameService {
   //   appGameOver: true,
   // };
   //real params
-    views: Views = {
-      appHeader: false,
-      appScore: false,
-      appWelcome: true,
-      appCountdown: false,
-      appRandomWord: false,
-      appWordInput: false,
-      appHitStrike: false,
-      appGameOver: false,
-    };
+  views: Views = {
+    appHeader: false,
+    appScore: false,
+    appWelcome: true,
+    appCountdown: false,
+    appRandomWord: false,
+    appWordInput: false,
+    appHitStrike: false,
+    appGameOver: false,
+  };
 
   score: Score = {
     wordLevel: 1,
@@ -120,9 +120,12 @@ export class GameService {
   };
 
   currentWord: CurrentWord = {
-    randomWord: 'Platzi',
+    randomWord: '',
     typedWord: '',
   };
+
+  sub$: Subscription | undefined;
+  sub2$: Subscription | undefined;
 
   countDownTime: number = 3;
 
@@ -153,19 +156,19 @@ export class GameService {
   //Tengo que refactorizar esta función tan fea
   countdown = () => {
     //Tiene que ser arrowFunction para mantener el contexto de gameservice así lo llame en otro componente. ¿Es mala práctica?
-    const sub$ = this.countdownTimer$.subscribe({
+    this.sub$ = this.countdownTimer$.subscribe({
       next: (value) => {
         console.log(value);
         this.countDownTime = value;
         if (value === 0) {
-          sub$.unsubscribe();
+          this.sub$!.unsubscribe();
           this.views.appCountdown = false;
           this.views.appRandomWord = true;
-          const sub2$ = this.countdownWord$.subscribe({
+          this.sub2$ = this.countdownWord$.subscribe({
             next: (value) => {
               console.log('Mostramos palabra: ', value);
               if (value === this.wordLevel[this.score.wordLevel].timeForWord) {
-                sub2$.unsubscribe();
+                this.sub2$!.unsubscribe();
                 this.views.appRandomWord = false;
 
                 this.views.appWordInput = true;
