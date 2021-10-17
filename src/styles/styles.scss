@@ -6,12 +6,29 @@ html {
   font-size: 62.5%;
 }
 
-body{
+body {
   font-family: $font-main;
   font-size: 2rem;
   background-color: $background-light;
 }
 
-p{
+p {
   color: $darkest;
+}
+
+.box1 {
+  width: 90%;
+  height: 80px;
+  background: $lightest;
+  box-shadow: $shadow-medium;
+  border-radius: 20px;
+  margin: 50px auto 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  p {
+    font-size: $h1;
+    font-weight: bold;
+    color: $aux-medium;
+  }
 }
