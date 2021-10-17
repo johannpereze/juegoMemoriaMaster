@@ -35,7 +35,6 @@ export class WordInputComponent {
     console.log('WINNER!');
     this.gameService.views.appHitStrike = false
     this.gameService.views.appGameOver = true
-    this.gameService.score.gameOutcome = "!YOU WIN!"
     this.gameService.score.gameOutcomeImg = "../../../assets/images/winner.svg"
   }
 
@@ -43,8 +42,7 @@ export class WordInputComponent {
     console.log('LOSER!');
     this.gameService.views.appHitStrike = false
     this.gameService.views.appGameOver = true
-    this.gameService.score.gameOutcome = "../../../assets/images/game-over.svg"
-    this.gameService.score.gameOutcomeImg = "!GAME OVER!"
+    this.gameService.score.gameOutcomeImg = "../../../assets/images/game-over.svg"
   }
 
   wordsAreEqual(): boolean {

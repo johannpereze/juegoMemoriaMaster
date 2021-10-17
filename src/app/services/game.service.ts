@@ -81,8 +81,7 @@ export class GameService {
     playerLevel: 1,
     hits: 0,
     strikes: 0,
-    gameOutcome: '',
-    gameOutcomeImg: '../../../assets/images/game-over.svg',
+    gameOutcomeImg: '',
   };
 
   wordLevel: WorldLevel[] = [
