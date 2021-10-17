@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { interval, Observable, Subscription } from 'rxjs';
+import { interval, Subscription } from 'rxjs';
 import { map } from 'rxjs/operators';
 import {
   CurrentWord,
@@ -16,21 +16,8 @@ import data from '../../db/db.json';
   providedIn: 'root',
 })
 export class GameService {
-  //Voy a poner las palabras temporalmente
   words: Words = data;
-  // //fake params to debug and write CSS
-  // views: Views = {
-  //   appHeader: true,
-  //   appScore: true,
-  //   appWelcome: false,
-  //   appCountdown: false,
-  //   appRandomWord: false,
-  //   appWordInput: false,
-  //   appHitStrike: false,
-  //   appGameOver: true,
-  // };
 
-  //real params
   views: Views = {
     appHeader: false,
     appScore: false,
@@ -93,13 +80,11 @@ export class GameService {
   sub2$: Subscription | undefined;
 
   countDownTime: number = 3;
-
   countdownTimer$ = interval(1000).pipe(map((value) => 2 - value));
-
   countdownWord$ = interval(100);
 
   getWord = (level: number) => {
-    const random = Math.floor(Math.random() * this.words.data[level].length); //numero random del 0 al 9. No debería ser por 10 sino por el length del array
+    const random = Math.floor(Math.random() * this.words.data[level].length);
     // console.log('Random number: ', random);
     this.currentWord.randomWord = this.words.data[level][random];
   };
@@ -123,7 +108,7 @@ export class GameService {
     //Tiene que ser arrowFunction para mantener el contexto de gameservice así lo llame en otro componente. ¿Es mala práctica?
     this.sub$ = this.countdownTimer$.subscribe({
       next: (value) => {
-        console.log('Countdown time: ',value);
+        console.log('Countdown time: ', value);
         this.countDownTime = value;
         if (value === 0) {
           this.sub$!.unsubscribe();

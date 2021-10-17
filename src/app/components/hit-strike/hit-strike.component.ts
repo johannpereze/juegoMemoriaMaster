@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { HitStrikeParams, MainButton } from 'src/app/interface/interfaces';
+import { MainButton } from 'src/app/interface/interfaces';
 import { GameService } from 'src/app/services/game.service';
 
 @Component({
@@ -24,7 +24,6 @@ export class HitStrikeComponent {
   }
 
   gameResume() {
-    
     this.gameService.views.appCountdown = true;
     this.gameService.views.appHitStrike = false;
     this.getWord(this.wordLevel);

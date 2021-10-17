@@ -5,26 +5,21 @@ import { GameService } from 'src/app/services/game.service';
 @Component({
   selector: 'app-countdown',
   templateUrl: './countdown.component.html',
-  styles: [
-  ]
+  styles: [],
 })
 export class CountdownComponent {
+  constructor(private gameService: GameService) {}
 
-  constructor(private gameService: GameService) { }
-
-  get countDownTime(){
-    return this.gameService.countDownTime
+  get countDownTime() {
+    return this.gameService.countDownTime;
   }
 
   mainButton: MainButton = {
     text: 'Game Start',
     iconClass: 'main-button__icon--arrow-right-circle',
-    action: ()=>{
-      this.gameService.views.appWelcome = false
-      this.gameService.views.appCountdown = true
-    }
-  }
-
-
-
+    action: () => {
+      this.gameService.views.appWelcome = false;
+      this.gameService.views.appCountdown = true;
+    },
+  };
 }

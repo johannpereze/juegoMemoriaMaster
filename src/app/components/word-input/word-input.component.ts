@@ -13,12 +13,7 @@ export class WordInputComponent {
   get currentWord() {
     return this.gameService.currentWord;
   }
-  get countdown() {
-    return this.gameService.countdown;
-  }
-  get getWord() {
-    return this.gameService.getWord;
-  }
+
   get wordLevel() {
     return this.gameService.score.wordLevel;
   }
@@ -32,39 +27,33 @@ export class WordInputComponent {
   }
 
   winner() {
-    console.log('WINNER!');
     this.gameService.views.appHitStrike = false;
     this.gameService.views.appGameOver = true;
     this.gameService.score.gameOutcomeImg = '../../../assets/images/winner.svg';
   }
 
   gameOver() {
-    console.log('LOSER!');
     this.gameService.views.appHitStrike = false;
     this.gameService.views.appGameOver = true;
     this.gameService.score.gameOutcomeImg =
       '../../../assets/images/game-over.svg';
   }
 
-  wordsAreEqual(): boolean {
+  areWordsEqual(): boolean {
     return this.currentWord.typedWord.toLowerCase().trim() ===
-      this.currentWord.randomWord
+      this.currentWord.randomWord.toLowerCase().trim()
       ? true
       : false;
   }
 
-  showResult() {
-    this.gameService.views.appWordInput = false;
-  }
-
   hit() {
     this.gameService.score.wordLevel = this.gameService.score.playerLevel;
-    this.gameService.score.hits++; //Quisiera hacer un getter para no escribir tan largo pero me dice read only
+    this.gameService.score.hits++;
     this.gameService.views.appHitStrike = true;
     this.gameService.hitStrikeParams.message = 'HIT!';
     this.gameService.hitStrikeParams.iconClass = 'hitStrike__icon--hit';
     this.gameService.hitStrikeParams.textClass = 'box-1--hit';
-    this.showResult();
+    this.gameService.views.appWordInput = false;
   }
 
   strike() {
@@ -76,11 +65,11 @@ export class WordInputComponent {
     this.gameService.hitStrikeParams.message = 'STRIKE!';
     this.gameService.hitStrikeParams.iconClass = 'hitStrike__icon--strike';
     this.gameService.hitStrikeParams.textClass = 'box-1--strike';
-    this.showResult();
+    this.gameService.views.appWordInput = false;
   }
 
   check() {
-    if (this.wordsAreEqual()) {
+    if (this.areWordsEqual()) {
       this.hit();
       if (this.gameService.score.hits === 3) {
         this.levelUp();
@@ -104,9 +93,4 @@ export class WordInputComponent {
       this.check();
     },
   };
-
-  // checkWord(event: any) {
-  //   console.log(event);
-  //   console.log(this.currentWord.typedWord);
-  // }
 }
