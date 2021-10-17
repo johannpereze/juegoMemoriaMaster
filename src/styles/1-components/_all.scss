@@ -59,7 +59,7 @@
   border-bottom-left-radius: 1.5rem;
   border-bottom-right-radius: 1.5rem;
   box-shadow: $shadow-medium;
-  
+
   &__container {
     display: flex;
     padding: 0 30px;
@@ -127,7 +127,6 @@
   }
 }
 
-
 .main-button:hover {
   background-color: #2ba6d3;
 }
@@ -136,13 +135,13 @@
 }
 
 //countdown
-.countdown{
-  .box1{
-    p{
+.countdown {
+  .box1 {
+    p {
       color: $aux-medium;
     }
   }
-  &__circle{
+  &__circle {
     margin: 40px auto;
     height: 160px;
     width: 160px;
@@ -151,10 +150,22 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    span{
+    span {
       font-size: $giga;
       font-weight: bold;
-      color: $main-dark
+      color: $main-dark;
+    }
+  }
+}
+
+//random-word
+.random-word {
+  .box1 + &__box1 {
+    background-color: $main-light;
+  }
+  &__box1 {
+    p {
+      color: $aux-light;
     }
   }
 }
@@ -177,4 +188,3 @@
     }
   }
 }
-

@@ -58,8 +58,8 @@ export class GameService {
     appHeader: true,
     appScore: true,
     appWelcome: false,
-    appCountdown: true,
-    appRandomWord: false,
+    appCountdown: false,
+    appRandomWord: true,
     appWordInput: false,
     appHitStrike: false,
     appGameOver: false,
@@ -118,7 +118,7 @@ export class GameService {
   };
 
   currentWord: CurrentWord = {
-    randomWord: '',
+    randomWord: 'Platzi',
     typedWord: '',
   };
 

@@ -1,5 +1,9 @@
-<div>
-  <p>Your word:</p>
-</div>
+<div class="random-word">
+  <div class="box1">
+    <p>Your word:</p>
+  </div>
 
-<div><p>{{currentWord.randomWord}}</p></div>
+  <div class="random-word__box1 box1">
+    <p>{{ currentWord.randomWord | titlecase }}</p>
+  </div>
+</div>
