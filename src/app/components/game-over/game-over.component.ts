@@ -14,8 +14,8 @@ export class GameOverComponent {
     return this.gameService.gameStart;
   }
 
-  get finalResult() {
-    return this.gameService.score.finalResult;
+  get gameOutcomeImg() {
+    return this.gameService.score.gameOutcomeImg;
   }
 
   mainButton: MainButton = {

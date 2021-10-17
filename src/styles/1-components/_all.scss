@@ -29,7 +29,8 @@
   align-items: center;
   flex-direction: column;
   img {
-    width: 80%;
+    width: 70%;
+    max-width: 300px;
     margin: 30px auto 20px;
   }
   &__instructions {
@@ -236,5 +237,16 @@
       background-color: red;
       background-image: url(../../assets/images/icons/strike-icon.svg);
     }
+  }
+}
+
+//game-over
+.game-over{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  img{
+    margin: 40px auto;
+    width: 300px;
   }
 }

@@ -61,8 +61,8 @@ export class GameService {
   //   appCountdown: false,
   //   appRandomWord: false,
   //   appWordInput: false,
-  //   appHitStrike: true,
-  //   appGameOver: false,
+  //   appHitStrike: false,
+  //   appGameOver: true,
   // };
   //real params
     views: Views = {
@@ -81,7 +81,8 @@ export class GameService {
     playerLevel: 1,
     hits: 0,
     strikes: 0,
-    finalResult: '',
+    gameOutcome: '',
+    gameOutcomeImg: '../../../assets/images/game-over.svg',
   };
 
   wordLevel: WorldLevel[] = [
