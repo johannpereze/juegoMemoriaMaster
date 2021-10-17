@@ -40,3 +40,6 @@ export interface HitStrikeParams {
   iconClass: string;
   textClass: string;
 }
+export interface Words {
+  data: string[][];
+}
