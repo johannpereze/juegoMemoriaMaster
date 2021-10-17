@@ -54,34 +54,34 @@ export class GameService {
     ],
   ];
 
-  views: Views = {
-    appHeader: true,
-    appScore: true,
-    appWelcome: false,
-    appCountdown: false,
-    appRandomWord: false,
-    appWordInput: true,
-    appHitStrike: false,
-    appGameOver: false,
-  };
-// //real params
-//   views: Views = {
-//     appHeader: false,
-//     appScore: false,
-//     appWelcome: true,
-//     appCountdown: false,
-//     appRandomWord: false,
-//     appWordInput: false,
-//     appHitStrike: false,
-//     appGameOver: false,
-//   };
+  // views: Views = {
+  //   appHeader: true,
+  //   appScore: true,
+  //   appWelcome: false,
+  //   appCountdown: false,
+  //   appRandomWord: false,
+  //   appWordInput: false,
+  //   appHitStrike: true,
+  //   appGameOver: false,
+  // };
+  //real params
+    views: Views = {
+      appHeader: false,
+      appScore: false,
+      appWelcome: true,
+      appCountdown: false,
+      appRandomWord: false,
+      appWordInput: false,
+      appHitStrike: false,
+      appGameOver: false,
+    };
 
   score: Score = {
     wordLevel: 1,
     playerLevel: 1,
     hits: 0,
     strikes: 0,
-    finalResult:'',
+    finalResult: '',
   };
 
   wordLevel: WorldLevel[] = [
@@ -115,6 +115,7 @@ export class GameService {
   hitStrikeParams: HitStrikeParams = {
     message: '',
     iconClass: '',
+    textClass: '',
   };
 
   currentWord: CurrentWord = {

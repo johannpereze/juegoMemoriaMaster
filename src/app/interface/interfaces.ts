@@ -38,4 +38,5 @@ export interface CurrentWord {
 export interface HitStrikeParams {
   message: string;
   iconClass: string;
+  textClass: string;
 }

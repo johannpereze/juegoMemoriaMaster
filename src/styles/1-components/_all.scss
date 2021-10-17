@@ -99,6 +99,7 @@
   border: none;
   border-radius: 2.5rem;
   position: relative;
+  box-shadow: $shadow-medium;
   &__container {
     display: flex;
     justify-content: center;
@@ -125,18 +126,18 @@
       background-image: url(../../assets/images/icons/play-again.svg);
     }
   }
-}
-
-.main-button:hover {
-  background-color: #2ba6d3;
-}
-.main-button:active {
-  background-color: #26657c;
+  &:hover {
+    background-color: #2ba6d3;
+  }
+  &:active {
+    background-color: #26657c;
+    box-shadow: none;
+  }
 }
 
 //countdown
 .countdown {
-  .box1 {
+  .box-1 {
     p {
       color: $aux-medium;
     }
@@ -160,11 +161,11 @@
 
 //random-word
 .random-word {
-  .box1 + &__box1 {
+  .box-1 + &__box-1 {
     //to gain specificity without #id
     background-color: $main-light;
   }
-  &__box1 {
+  &__box-1 {
     p {
       color: $aux-light;
     }
@@ -176,7 +177,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  .box1 {
+  .box-1 {
     p {
       color: $aux-medium;
     }
@@ -194,21 +195,39 @@
       padding: 0 30px;
       border-radius: 20px;
       margin: 40px 0 60px 0;
-    }
-    :focus-visible{
-      outline-color: $main-dark
+      &:focus-visible {
+        outline-color: $main-dark;
+      }
     }
   }
 }
 
 //hitStrike
 .hitStrike {
-  background-color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  .box-1--hit {
+    p {
+      color: $main-light;
+    }
+  }
+  .box-1--strike {
+    p {
+      color: $aux-alert;
+    }
+  }
+
   &__icon {
     display: inline-block;
-    background-size: cover;
-    width: 150px;
-    height: 150px;
+    margin: 30px auto 40px auto;
+    background-size: 100px;
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 140px;
+    height: 140px;
+    border-radius: 50%;
+    box-shadow: $shadow-medium;
     &--hit {
       background-color: $main-light;
       background-image: url(../../assets/images/icons/hit-icon.svg);

@@ -1,7 +1,9 @@
-<div>
-  <p>{{ hitStrikeParams.message }}</p>
-</div>
 <div class="hitStrike">
-  <span class="hitStrike__icon" [class]="hitStrikeParams.iconClass"></span>
+  <div class="box-1" [class]="hitStrikeParams.textClass">
+    <p>{{ hitStrikeParams.message }}</p>
+  </div>
+  <div>
+    <span class="hitStrike__icon" [class]="hitStrikeParams.iconClass"></span>
+  </div>
+  <div><app-main-button [mainButton]="mainButton"></app-main-button></div>
 </div>
-<div><app-main-button [mainButton]="mainButton"></app-main-button></div>

@@ -63,6 +63,7 @@ export class WordInputComponent {
     this.gameService.views.appHitStrike = true;
     this.gameService.hitStrikeParams.message = 'HIT!';
     this.gameService.hitStrikeParams.iconClass = 'hitStrike__icon--hit';
+    this.gameService.hitStrikeParams.textClass = 'box-1--hit';
     this.showResult();
   }
 
@@ -75,6 +76,7 @@ export class WordInputComponent {
     this.gameService.views.appHitStrike = true;
     this.gameService.hitStrikeParams.message = 'STRIKE!';
     this.gameService.hitStrikeParams.iconClass = 'hitStrike__icon--strike';
+    this.gameService.hitStrikeParams.textClass = 'box-1--strike';
     this.showResult();
   }
 
