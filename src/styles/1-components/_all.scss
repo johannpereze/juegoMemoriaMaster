@@ -127,6 +127,39 @@
   }
 }
 
+
+.main-button:hover {
+  background-color: #2ba6d3;
+}
+.main-button:active {
+  background-color: #26657c;
+}
+
+//countdown
+.countdown{
+  .box1{
+    p{
+      color: $aux-medium;
+    }
+  }
+  &__circle{
+    margin: 40px auto;
+    height: 160px;
+    width: 160px;
+    border-radius: 50%;
+    background-color: $aux-light;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    span{
+      font-size: $giga;
+      font-weight: bold;
+      color: $main-dark
+    }
+  }
+}
+
+//hitStrike
 .hitStrike {
   background-color: white;
   &__icon {
@@ -145,9 +178,3 @@
   }
 }
 
-.main-button:hover {
-  background-color: #2ba6d3;
-}
-.main-button:active {
-  background-color: #26657c;
-}
