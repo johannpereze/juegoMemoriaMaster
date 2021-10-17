@@ -7,6 +7,11 @@ html {
 }
 
 body{
-  font-family: $Font-main;
+  font-family: $font-main;
   font-size: 2rem;
+  background-color: $background-light;
+}
+
+p{
+  color: $darkest;
 }

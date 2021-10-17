@@ -1,4 +1,12 @@
-<img src="../../../assets/images/LogoMMG.svg" alt="logo">
+<app-header></app-header>
 
-<app-main-button [mainButton]='mainButton'></app-main-button>
-
+<div class="welcome">
+  <img src="../../../assets/images/LogoMMG.svg" alt="logo" />
+    <div class="welcome__instructions">
+        <h1>How to play:</h1>
+        <p>Read the random word and memorize it. Then, type it and press check.</p>
+    </div>
+  <div class="main-button__container">
+    <app-main-button [mainButton]="mainButton"></app-main-button>
+  </div>
+</div>

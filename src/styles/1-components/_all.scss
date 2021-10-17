@@ -2,17 +2,57 @@
 
 //header
 .header {
-  background-color: $light-coral;
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+  background-color: $aux-medium;
+  box-shadow: $shadow-medium;
+  height: 80px;
+ &__logo{
+   position: absolute;
+   top: 10px;
+   right: 15px;
+ }
+  &__back-button{
+    display: inline-block;
+    background-size: cover;
+    width: 40px;
+    height: 40px;
+    margin: auto 15px;
+    background-image: url(../../assets/images/icons/back-button.svg);
+  }
 }
 
-.header p {
-  margin: 0;
-  padding: 10px;
+//welcome
+.welcome{
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  img{
+    width: 80%;
+    margin: 30px auto 20px;
+  }
+  &__instructions{
+    background-color: $lightest;
+    width: 80%;
+    padding: 1rem;
+    border-radius: 2rem;
+    box-shadow: $shadow-light;
+    h1{
+      color: $main-dark;
+      margin: 1.5rem auto;
+      text-align: center;
+    }
+    p {
+      margin: 1.5rem auto;
+      text-align: center;
+    }
+  }
 }
 
 //score
 .score {
-  background-color: $cg-blue;
+  background-color: $main-dark;
   &__container {
     display: flex;
     justify-content: space-between;
@@ -32,16 +72,27 @@
 //main-button
 
 .main-button {
-  background-color: $light-sea-green;
-  color: $floral-white;
-  padding: 10px;
+  background-color: $main-light;
+  color: $lightest;
+  font-weight: bold;
+  height: 5rem;
+  width: 24.5rem;
   border: none;
-  border-radius: 2rem;
+  border-radius: 2.5rem;
+  position: relative;
+  &__container{
+    display: flex;
+    justify-content: center;
+    margin: 40px auto;
+  }
   &__icon {
     display: inline-block;
     background-size: cover;
-    width: 20px;
-    height: 20px;
+    width: 30px;
+    height: 30px;
+    margin: 0 1rem;
+    position: absolute;
+    top: 10px;
     &--arrow-left-circle {
       background-image: url(../../assets/images/icons/arrow-left-circle.svg);
     }
@@ -66,7 +117,7 @@
     width: 150px;
     height: 150px;
     &--hit {
-      background-color: $light-sea-green;
+      background-color: $main-light;
       background-image: url(../../assets/images/icons/hit-icon.svg);
     }
     &--strike {

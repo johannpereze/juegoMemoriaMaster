@@ -1,6 +1,28 @@
-$Font-main: sans-serif;
-$cg-blue: #227c9d;
-$light-sea-green: #17c3b2;
-$maximum-yellow-red: #ffcb77;
-$floral-white: #fef9ef;
-$light-coral: #fe6d73;
+/* Color styles */
+$background-light: rgba(245, 245, 245, 1);
+$main-light: rgba(23, 195, 178, 1);
+$main-dark: rgba(34, 124, 157, 1);
+$aux-light: rgba(255, 203, 119, 1);
+$aux-medium: rgba(255, 142, 120, 1);
+$darkest: rgba(52, 52, 52, 1);
+$lightest: rgba(254, 254, 254, 1);
+$aux-dark: rgba(166, 17, 98, 1);
+$aux-alert: rgba(250, 62, 62, 1);
+
+/* Text-size styles */
+/* base size: rem (10px) */
+$h1: 3rem;
+$h2: 2.4rem;
+$h3: 1.6rem;
+$h4: 1.5rem;
+$p: 1.8rem;
+$rem: 1rem;
+$giga: 9.6rem;
+$labels: 2.2rem;
+
+/* Font Fammily */
+$font-main: 'Poppins', sans-serif;
+
+/* Effect styles */
+$shadow-medium:  0px 2px 4px rgba(0, 0, 0, 0.25);
+$shadow-light:  0px 10px 40px rgba(0, 0, 0, 0.03);
