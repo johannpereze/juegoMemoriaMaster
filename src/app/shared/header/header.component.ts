@@ -27,7 +27,7 @@ export class HeaderComponent {
     this.gameService.views.appWordInput = false;
     this.gameService.views.appHitStrike = false;
     this.gameService.views.appGameOver = false;
-    this.gameService.sub$?.unsubscribe();
-    this.gameService.sub2$?.unsubscribe();
+    this.gameService.subs?.unsubscribe();
+    this.gameService.subs2?.unsubscribe();
   }
 }
