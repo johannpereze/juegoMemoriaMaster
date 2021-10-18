@@ -1,4 +1,4 @@
-# MasterMemmory Game
+# MasterMemory Game
 
 ## Live version
 
