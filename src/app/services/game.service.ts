@@ -79,7 +79,7 @@ export class GameService {
 
   getWord = (level: number) => {
     const random = Math.floor(Math.random() * this.words.data[level].length);
-    // console.log('Random number: ', random);
+    console.log('Random number: ', random);
     this.currentWord.randomWord = this.words.data[level][random];
   };
 

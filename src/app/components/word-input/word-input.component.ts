@@ -19,7 +19,6 @@ export class WordInputComponent {
   }
 
   levelUp() {
-    console.log('LEVEL UP!');
     this.gameService.score.wordLevel++;
     this.gameService.score.playerLevel++;
     this.gameService.score.strikes = 0;
