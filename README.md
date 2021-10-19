@@ -1,4 +1,4 @@
-# MasterMemory Game
+<img src="https://masters-memory.netlify.app/assets/images/LogoMMG.svg" alt="masters" width="400"/>
 
 ## Live version
 
